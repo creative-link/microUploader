@@ -35,21 +35,21 @@ uploader.prototype.setUploader = function (elem, url, beforeCallback, doneCallba
     var cbDone = typeof(doneCallback) === "function" ? doneCallback : function() {};
     var cbError = typeof(errorCallback) === "function" ? errorCallback : function() {};
     var uid = (new Date().getTime()).toString(16);
-    // Создаем фрейм
+    // РЎРѕР·РґР°РµРј С„СЂРµР№Рј
     var iframe = this.createFrame(uid); 
-    // Создаем файловый инпут
+    // РЎРѕР·РґР°РµРј С„Р°Р№Р»РѕРІС‹Р№ РёРЅРїСѓС‚
     var fileInput =  this.createFileInput();
-    // Создаем кнопку сабмита
+    // РЎРѕР·РґР°РµРј РєРЅРѕРїРєСѓ СЃР°Р±РјРёС‚Р°
     var submit = this.createSubmitButton();
-    // Создаем форму и прявязываем к ней элементы
+    // РЎРѕР·РґР°РµРј С„РѕСЂРјСѓ Рё РїСЂСЏРІСЏР·С‹РІР°РµРј Рє РЅРµР№ СЌР»РµРјРµРЅС‚С‹
     var form = this.createForm(uid, url);
     form.appendChild(fileInput).appendChild(submit);
-    // Помещаем форму в iframe
+    // РџРѕРјРµС‰Р°РµРј С„РѕСЂРјСѓ РІ iframe
     iframe.appendChild(form);
-    // добавляем iframe к элементу
+    // РґРѕР±Р°РІР»СЏРµРј iframe Рє СЌР»РµРјРµРЅС‚Сѓ
     elem.appendChild(iframe);
     
-    // Привязываем события
+    // РџСЂРёРІСЏР·С‹РІР°РµРј СЃРѕР±С‹С‚РёСЏ
     elem.addEventListener("click", function() { fileInput.click(); }, true);
     fileInput.addEventListener("change", function () { 
         cbBefore(); 
